@@ -1,7 +1,9 @@
+---
 name: Playwright Tests
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   jobs:
     playwrighttests:
       runs-on: ubuntu-latest
@@ -10,5 +12,3 @@ on:
           uses: actions/checkout@v2
         - name: Say Hi
           run: echo Hi
-
-  
