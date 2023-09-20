@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Checked out
-        run: echo Checked out
       - name: Run tests
         run: |
           echo "Starting application"
