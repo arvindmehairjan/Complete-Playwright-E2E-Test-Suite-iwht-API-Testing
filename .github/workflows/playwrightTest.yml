@@ -8,10 +8,22 @@ on:
 jobs:
   playwrighttests:
     runs-on: ubuntu-latest
-
+    container:
+      image: mcr.microsoft.com/playwright
+      env:
+        ADMIN_USERNAME: ${{ secrets.ADMIN_USERNAME }}
+        ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Say Hi
-        run: echo Hi
+      - name: Checked out
+        run: echo Checked out
+      - name: Run tests
+        run: |
+          echo "Starting application"
+          chmod +x ./shopping-store-linux-amd64
+          ./shopping-store-linux-amd64 &
+          echo "Installing dependencies"
+          npm ci
+          echo "Run tests"
+          npm run test:ci
