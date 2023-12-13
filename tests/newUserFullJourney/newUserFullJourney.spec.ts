@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { deliveryDetails } from '../../data/deliveryDetails';
 import { creditCardDetails } from '../../data/creditCardDetails';
 
+  
 test("New User E2E journey", async ({page}) => {
     const productPage = new ProductPage(page);
     const homepage = new HomePage(page);
